@@ -1,2 +1,2 @@
 #todoList
-This is just a practice application using reactjs and tailwindcss.
+This is just a practice web application using reactjs and tailwindcss.
