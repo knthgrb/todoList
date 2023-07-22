@@ -7,7 +7,6 @@ const ListComponent = ({
   task,
   index,
   handleRemove,
-  truncateText,
   handleEditTask,
   setError,
 }) => {
@@ -28,14 +27,14 @@ const ListComponent = ({
   const buttonDisable = task === "";
 
   return (
-    <li className="font-sm relative flex h-16 items-center rounded-md border-b px-0 text-[#DFE3EE]">
+    <li className="font-sm relative flex h-16 items-center rounded-md border-b px-0 text-[#DFE3EE] hover:cursor-pointer">
       <span className="mr-5">
         <RiTodoLine size="23" />
       </span>
 
       {isEditing ? (
         <input
-          className=" w-52 rounded-lg p-2 font-regular text-sm text-gray-600 focus:outline-none"
+          className=" scrollbar-hide h-9 w-64 rounded-lg p-2 font-regular text-sm text-gray-600 focus:outline-none"
           type="text"
           ref={editRef}
           value={task}
@@ -52,7 +51,7 @@ const ListComponent = ({
           onChange={(event) => handleEditTask(index, event.target.value)}
         />
       ) : (
-        <span>{truncateText(task, 25)}</span>
+        <span className="max-w-[16.5rem] truncate">{task}</span>
       )}
 
       <button
